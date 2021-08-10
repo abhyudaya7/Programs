@@ -4,12 +4,14 @@ using namespace std;
 class Graph {
 	int v;
 	int e;
+	vector<bool> visited;
 	// adjacency matrix
 	int **adj;
 public:
 	Graph(int v,int e);
 	void newEdge(int start, int e);
-	void dfs(int start, vector<bool>& visited);
+	void dfs(int start);
+	void DFS();
 };
 
 Graph :: Graph(int v,int e) {
@@ -22,6 +24,7 @@ Graph :: Graph(int v,int e) {
 			adj[i][j] = 0;
 		}
 	}
+	visited.assign(v, false);
 }
 
 void Graph :: newEdge(int start, int end) {
@@ -29,12 +32,19 @@ void Graph :: newEdge(int start, int end) {
 	adj[end][start] = 1;
 }
 
-void Graph :: dfs(int start, vector<bool>& visited) {
+void Graph :: dfs(int start) {
 	cout << start << " ";
 	visited[start] = true;
 	for (int i=0;i<v;i++) {
 		if (adj[start][i] = 1 and !visited[i]) 
-			dfs(i, visited);
+			dfs(i);	
+	}
+}
+
+void Graph :: DFS() {
+	for (int i=0;i<v;i++) {
+		if (!visited[i]) 
+			dfs(i);
 	}
 }
 
@@ -52,6 +62,6 @@ int main() {
 	G.newEdge(3,5);
 	G.newEdge(5,4);
 
-	vector<bool> visited(v, false);
-	G.dfs(0, visited);
+	// vector<bool> visited(v, false);
+	G.DFS();
 }
