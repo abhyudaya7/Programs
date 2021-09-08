@@ -1,16 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void getTopoSort(int node, vector<int> adj[], vector<bool> &vis, stack<int> &st) {
+void getTopoSortDFS(int node, vector<int> adj[], vector<bool> &vis, stack<int> &st) {
     vis[node] = true;
 
     for (auto i: adj[node]) {
         if (!vis[i]) {
-            getTopoSort(i, adj, vis, st);
+            getTopoSortDFS(i, adj, vis, st);
         }
     }
 
     st.push(node);
+}
+
+vector<int> getTopoSortBFS(int V, vector<int> adj[]) {
+    vector<int> indegree(V, 0);
+
+    // getting the indegree of each node in the graph
+    for (int i=0;i<V;i++) {
+        for (auto it: adj[i]) {
+            indegree[it]++;
+        }
+    }
+
+    // adding nodes with zero indegree to the queue
+    queue<int> q;
+    for (int i=0;i<V;i++) {
+        if (indegree[i] == 0) {
+            q.push(i);
+        }
+    }
+
+    vector<int> topo;
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        topo.push_back(node);
+
+        for (auto i: adj[node]) {
+            indegree[i]--;
+            if (indegree[i] == 0) {
+                q.push(i);
+            }
+        }
+    }
+    return topo;
 }
 
 vector<int> topoSort(int V, vector<int> adj[]) {
@@ -20,7 +54,7 @@ vector<int> topoSort(int V, vector<int> adj[]) {
 
     for (int i=0;i<V;i++) {
         if (!vis[i]) {
-            getTopoSort(i, adj, vis, st);
+            getTopoSortDFS(i, adj, vis, st);
         }
     }
 
@@ -42,7 +76,7 @@ int main() {
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    vector<int> topo = topoSort(n,adj);
+    vector<int> topo = getTopoSortBFS(n,adj);
     for (auto i:topo)
         cout << i << " ";
     return 0;
