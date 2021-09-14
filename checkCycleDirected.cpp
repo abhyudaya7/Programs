@@ -16,7 +16,7 @@ bool detectCycle(int node, vector<int> adj[], vector<bool> &vis, vector<bool> &d
     return false;
 }
 
-bool isCyclic(int V, vector<int> adj[]) {
+bool isCyclicDFS(int V, vector<int> adj[]) {
     vector<bool> vis(V, false);
     vector<bool> dfsvis(V, false);
 
@@ -29,6 +29,45 @@ bool isCyclic(int V, vector<int> adj[]) {
     return false;
 }
 
+bool isCyclicBFS(int N, vector<int> adj[]) {
+    queue<int> q;
+    vector<int> indegree(N, 0);
+
+    // getting indegree for each node
+    for (int i=0;i<N;i++) {
+        for (auto it: adj[i]) {
+            indegree[it]++;
+        }
+    }
+
+    // adding nodes with indegree 0 to the queue
+    for (int i=0;i<N;i++) {
+        if (indegree[i] == 0) {
+            q.push(i);
+        }
+    }
+
+    int count = 0;
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+
+        count++;
+
+        for (auto i:adj[node]) {
+            indegree[i]--;
+            if (indegree[i] == 0){
+                q.push(i);
+            }
+        }
+    }
+
+    // checking wether cycle is there or not
+    if (count == N)
+        return false;
+    return true;
+}
+
 int main() {
     int n,m;
     cin >> n >> m;
@@ -39,7 +78,7 @@ int main() {
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    if (isCyclic(n,adj)) {
+    if (isCyclicBFS(n,adj)) {
         cout << "YES\n";
     } else {
         cout << "NO\n";
