@@ -1,0 +1,1 @@
+{"name":"Local: minSumPath","url":"/home/abhyuday/Programs/Dynamic Programming/minSumPath.cpp","tests":[{"id":1633681808464,"input":"3 3 \n1 3 1\n1 5 1\n4 2 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/abhyuday/Programs/Dynamic Programming/minSumPath.cpp","group":"local","local":true}

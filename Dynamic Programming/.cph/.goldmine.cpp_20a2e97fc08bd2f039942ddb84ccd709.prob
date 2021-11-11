@@ -1,0 +1,1 @@
+{"name":"Local: goldmine","url":"/home/abhyuday/Programs/Dynamic Programming/goldmine.cpp","tests":[{"id":1633687511555,"input":"3 3\n1 3 3\n2 1 4\n0 6 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/abhyuday/Programs/Dynamic Programming/goldmine.cpp","group":"local","local":true}

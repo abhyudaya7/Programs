@@ -1,0 +1,1 @@
+{"name":"Local: climbStairsWithMinMoves","url":"/home/abhyuday/Programs/Dynamic Programming/climbStairsWithMinMoves.java","tests":[{"id":1633626977435,"input":"10 \n1 1 1 4 9 8 1 1 10 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/abhyuday/Programs/Dynamic Programming/climbStairsWithMinMoves.java","group":"local","local":true}

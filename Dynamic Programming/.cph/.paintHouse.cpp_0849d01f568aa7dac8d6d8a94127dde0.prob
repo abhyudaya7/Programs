@@ -1,0 +1,1 @@
+{"name":"Local: paintHouse","url":"/home/abhyuday/Programs/Dynamic Programming/paintHouse.cpp","tests":[{"id":1634307331677,"input":"4 \n1 5 7\n5 8 4\n3 2 9\n1 2 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/abhyuday/Programs/Dynamic Programming/paintHouse.cpp","group":"local","local":true}

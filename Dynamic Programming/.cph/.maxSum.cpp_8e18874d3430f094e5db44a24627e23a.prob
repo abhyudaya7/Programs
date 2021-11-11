@@ -1,0 +1,1 @@
+{"name":"Local: maxSum","url":"/home/abhyuday/Programs/Dynamic Programming/maxSum.cpp","tests":[{"id":1634302140983,"input":"6 \n5 10 10 100 5 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/abhyuday/Programs/Dynamic Programming/maxSum.cpp","group":"local","local":true}
